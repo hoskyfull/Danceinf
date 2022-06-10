@@ -13,3 +13,9 @@ const danceCoSchema = new Schema({
   
   // make Dance Company model
   const Company = model("Company", danceCoSchema);
+
+
+  ///////////////////////////////////////////////////
+// Export Model
+///////////////////////////////////////////////////
+module.exports = Company;

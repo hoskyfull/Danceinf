@@ -13,3 +13,8 @@ const balletSchema = new Schema({
   
   // make Dance Company model
   const Ballet = model("Ballet", balletCoSchema);
+
+  ///////////////////////////////////////////////////
+// Export Model
+///////////////////////////////////////////////////
+module.exports = Ballet;
