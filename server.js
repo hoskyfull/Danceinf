@@ -27,21 +27,6 @@ mongoose.connection
   .on("close", () => console.log("Disconnected from Mongoose"))
   .on("error", (error) => console.log(error));
 
-////////////////////////////////////////////////
-// Our Models
-////////////////////////////////////////////////
-// pull schema and model from mongoose
-const { Schema, model } = mongoose;
-
-// make Dance Company schema
-const danceCoSchema = new Schema({
-    name: String,
-    location: String,
-    founded: String,
-  });
-  
-  // make Dance Company model
-  const Company = model("Company", danceCoSchema);
 
 /////////////////////////////////////////////////
 // Create our Express Application Object
@@ -62,6 +47,28 @@ app.use(express.static("public")); // serve files from public statically
 app.get("/", (req, res) => {
   res.send("your server is running... better catch it.");
 });
+
+app.get("/fruits/seed", (req, res) => {
+    // array of starter fruits
+    const startCompanies = [
+      { name: "Orange", color: "orange", readyToEat: false },
+      { name: "Grape", color: "purple", readyToEat: false },
+      { name: "Banana", color: "orange", readyToEat: false },
+      { name: "Strawberry", color: "red", readyToEat: false },
+      { name: "Coconut", color: "brown", readyToEat: false },
+    ];
+  
+    // Delete all fruits
+    Fruit.deleteMany({}).then((data) => {
+      // Seed Starter Fruits
+      Fruit.create(startFruits).then((data) => {
+        // send created fruits as response to confirm creation
+        res.json(data);
+      });
+    });
+  });
+  
+
 
 //////////////////////////////////////////////
 // Server Listener
