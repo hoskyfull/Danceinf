@@ -9,6 +9,8 @@ const danceCoSchema = new Schema({
     name: String,
     location: String,
     founded: String,
+    rank: Number,
+    rankyear: Number,
   });
   
   // make Dance Company model

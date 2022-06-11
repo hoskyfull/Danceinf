@@ -48,28 +48,6 @@ app.get("/", (req, res) => {
   res.send("your server is running... better catch it.");
 });
 
-app.get("/fruits/seed", (req, res) => {
-    // array of starter fruits
-    const startCompanies = [
-      { name: "Orange", color: "orange", readyToEat: false },
-      { name: "Grape", color: "purple", readyToEat: false },
-      { name: "Banana", color: "orange", readyToEat: false },
-      { name: "Strawberry", color: "red", readyToEat: false },
-      { name: "Coconut", color: "brown", readyToEat: false },
-    ];
-  
-    // Delete all fruits
-    Fruit.deleteMany({}).then((data) => {
-      // Seed Starter Fruits
-      Fruit.create(startFruits).then((data) => {
-        // send created fruits as response to confirm creation
-        res.json(data);
-      });
-    });
-  });
-  
-
-
 //////////////////////////////////////////////
 // Server Listener
 //////////////////////////////////////////////
