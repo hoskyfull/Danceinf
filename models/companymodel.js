@@ -8,9 +8,12 @@ const { Schema, model } = mongoose;
 const danceCoSchema = new Schema({
     name: String,
     location: String,
-    founded: String,
+    founded: Number,
     rank: Number,
     rankyear: Number,
+    //ballets: [object.ref]
+    ///mongoose populate method read about it
+    //to be added in either index or show through the get route
   });
   
   // make Dance Company model
