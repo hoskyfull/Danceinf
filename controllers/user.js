@@ -2,7 +2,7 @@
 // Import Dependencies
 ////////////////////////////////////////
 const express = require("express");
-const User = require("../models/user");
+const User = require("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/models/users.js");
 const bcrypt = require("bcryptjs");
 
 /////////////////////////////////////////

@@ -1,3 +1,5 @@
+const mongoose = require('./connection')
+
 ////////////////////////////////////////////////
 // Our Models
 ////////////////////////////////////////////////
@@ -15,7 +17,7 @@ const balletSchema = new Schema({
 
   
   // make Dance Company model
-  const Ballet = model("Ballet", balletCoSchema);
+  const Ballet = model("Ballet", balletSchema);
 
 
 
