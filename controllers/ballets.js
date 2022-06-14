@@ -85,7 +85,7 @@ router.put("/:id", (req, res) => {
 
 // create route
 router.post("/", (req, res) => {
-    // check if the readyToEat property should be true or false
+    // check if the watched property should be true or false
     req.body.watched = req.body.watched === "on" ? true : false;
     // add username to req.body to track related user
     req.body.username = req.session.username;

@@ -50,8 +50,8 @@ router.get("/new", (req, res) => {
 
 // create route
 router.post("/", (req, res) => {
-    // check if the readyToEat property should be true or false
-    req.body.readyToEat = req.body.readyToEat === "on" ? true : false;
+    // check if the watched property should be true or false
+    req.body.watched = req.body.watched === "on" ? true : false;
     // add username to req.body to track related user
     req.body.username = req.session.username;
     // create the new companies
@@ -89,8 +89,8 @@ router.get("/:id/edit", (req, res) => {
 router.put("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id;
-    // check if the readyToEat property should be true or false
-    req.body.readyToEat = req.body.readyToEat === "on" ? true : false;
+    // check if the watched property should be true or false
+    req.body.watched = req.body.watched === "on" ? true : false;
     // update the company
     Company.findByIdAndUpdate(id, req.body, { new: true })
         .then((companies) => {
