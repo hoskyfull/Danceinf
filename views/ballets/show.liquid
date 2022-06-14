@@ -4,15 +4,15 @@
         <h2>
             {{ ballets.name }} -
 
-            {% if readyToEat == true %}
-            Ready to Eat
+            <!-- {% if readyToEat == true %}
+            Watched
             {% else %}
-            Not Ready to Eat
-            {% endif %}
+            Not Watched
+            {% endif %} -->
         </h2>
         <h3>{{ ballet.composed }}</h3>
-        <a href="/ballets/{{ ballets._id }}/edit"><button>Edit</button></a>
-        <form action="/ballets/{{ ballets._id }}?_method=DELETE" method="POST">
+        <a href="/ballets/{{ ballets.id }}/edit"><button>Edit</button></a>
+        <form action="/ballets/{{ ballets.id }}?_method=DELETE" method="POST">
             <input type="submit" value="Delete" />
         </form>
         <a href="/ballets/"><button>Back to Main</button></a>

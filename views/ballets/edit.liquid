@@ -1,6 +1,6 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-    <form action="/ballets/{{ballets._id}}?_method=PUT" method="post">
+    <form action="/ballets/{{ballets.id}}?_method=PUT" method="post">
         <fieldset>
             <legend>Edit {{ballets.name}}</legend>
             <label>
@@ -18,13 +18,14 @@
                 value="{{ballets.composed}}" />
             </label>
             <label>
-                READY TO EAT:<input 
+                WATCHED:<input 
                 type="checkbox" 
-                name="readyToEat" {% if ballets.readyToEat==true %} checked
+                name="watched" {% if ballets.watched==true %} checked
                 {% endif %} />
             </label>
         </fieldset>
         <input type="submit" value="Edit {{ballets.name}}" />
+        <a href="/ballets/"><button>Back to Main</button></a>
     </form>
 </div>
 {% endblock %}

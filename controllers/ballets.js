@@ -30,11 +30,11 @@ router.use((req, res, next) => {
 router.get("/", (req, res) => {
     // find all the ballets
     Ballets.find({ username: req.session.username })
-    .populate()
+    // .populate()
         // render a template after they are found
         .then((ballets) => {
             console.log(ballets);
-            res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/index.liquid", { ballets });
+            res.render("ballets/index", { ballets });
         })
         // send error as json if they aren't
         .catch((error) => {
@@ -43,66 +43,9 @@ router.get("/", (req, res) => {
         });
 });
 
-
 // new route
 router.get("/new", (req, res) => {
-    res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/ballets/new.liquid");
-});
-
-// create route
-router.post("/", (req, res) => {
-    // check if the readyToEat property should be true or false
-    req.body.readyToEat = req.body.readyToEat === "on" ? true : false;
-    // add username to req.body to track related user
-    req.body.username = req.session.username;
-    // create the new ballet
-    Ballets.create(req.body)
-        .then((ballets) => {
-            // redirect user to index page if successfully created item
-            res.redirect("/ballets");
-        })
-        // send error as json
-        .catch((error) => {
-            console.log(error);
-            res.json({ error });
-        });
-});
-
-
-// edit route
-router.get("/:id/edit", (req, res) => {
-    // get the id from params
-    const id = req.params.id;
-    // get the ballet from the database
-    Ballets.findById(id)
-        .then((ballets) => {
-            // render edit page and send ballet data
-            res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/ballets/edit.liquid", { ballets });
-        })
-        // send error as json
-        .catch((error) => {
-            console.log(error);
-            res.json({ error });
-        });
-});
-
-//update route
-router.put("/:id", (req, res) => {
-    // get the id from params
-    const id = req.params.id;
-    // check if the readyToEat property should be true or false
-    req.body.readyToEat = req.body.readyToEat === "on" ? true : false;
-    // update the ballet
-    Ballets.findByIdAndUpdate(id, req.body, { new: true })
-        .then((ballets) => {
-            // redirect to main page after updating
-            res.redirect("/ballets");
-        })
-        // send error as json
-        .catch((error) => {
-            console.log(error);
-            res.json({ error });
-        });
+    res.render("ballets/new");
 });
 
 router.delete("/:id", (req, res) => {
@@ -121,6 +64,63 @@ router.delete("/:id", (req, res) => {
         });
 });
 
+//update route
+router.put("/:id", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+    // check if the watched property should be true or false
+    req.body.watched = req.body.watched === "on" ? true : false;
+    // update the ballet
+    Ballets.findByIdAndUpdate(id, req.body, { new: true })
+        .then((ballets) => {
+            // redirect to main page after updating
+            res.redirect("/ballets/index");
+        })
+        // send error as json
+        .catch((error) => {
+            console.log(error);
+            res.json({ error });
+        });
+});
+
+// create route
+router.post("/", (req, res) => {
+    // check if the readyToEat property should be true or false
+    req.body.watched = req.body.watched === "on" ? true : false;
+    // add username to req.body to track related user
+    req.body.username = req.session.username;
+    // create the new ballet
+    Ballets.create(req.body)
+        .then((ballets) => {
+            // redirect user to index page if successfully created item
+            res.redirect("ballets/index");
+        })
+        // send error as json
+        .catch((error) => {
+            console.log(error);
+            res.json({ error });
+        });
+});
+
+
+// edit route
+router.get("/:id/edit", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+    // get the ballet from the database
+    Ballets.findById(id)
+        .then((ballets) => {
+            // render edit page and send ballet data
+            res.render("ballets/edit", { ballets });
+        })
+        // send error as json
+        .catch((error) => {
+            console.log(error);
+            res.json({ error });
+        });
+});
+
+
 // show route
 router.get("/:id", (req, res) => {
     // get the id from params
@@ -131,7 +131,7 @@ router.get("/:id", (req, res) => {
         .then((ballets) => {
             console.log(ballets);
             // render the template with the data from the database
-            res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/ballets/show.liquid", { ballets });
+            res.render("ballets/show", { ballets });
         })
         .catch((error) => {
             console.log(error);

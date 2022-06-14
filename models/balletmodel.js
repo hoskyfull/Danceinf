@@ -12,6 +12,7 @@ const balletSchema = new Schema({
     composed: String,
     choreographed: String,
     premiered: Number,
+    watched: Boolean,
     // companies: [{
 		// 	type: Schema.Types.ObjectId,
 		// 	ref: 'Companies'

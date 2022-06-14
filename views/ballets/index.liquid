@@ -1,0 +1,15 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  <a href="/ballets/new"><button>Create A New Ballet</button></a>
+  {% for ballet in ballets %}
+  <article>
+    <a href="/ballets/{{ ballet.id }}">{{ ballet.name }}</a>
+      <h2>
+        <!-- {{ballet.name}} - {% if ballet.readyToEat == true %} Watched {% else %} Not
+        Watched {% endif %} -->
+      </h2>
+    </a>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

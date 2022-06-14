@@ -1,17 +1,17 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-  <form action="/fruits" method="post">
+  <form action="/ballets" method="post">
     <fieldset>
-      <legend>Create a New Fruit</legend>
+      <legend>Create a New Ballet</legend>
       <label>
-        NAME:<input type="text" name="name" placeholder="enter fruit name" />
+        NAME:<input type="text" name="name" placeholder="enter ballet name" />
       </label>
       <label>
-        COLOR:<input type="text" name="color" placeholder="enter fruit name" />
+        COMPOSEER:<input type="text" name="composed" placeholder="enter composer name" />
       </label>
-      <label> READY TO EAT:<input type="checkbox" name="readyToEat" /> </label>
+      <label> WATCHED:<input type="checkbox" name="watched" /> </label>
     </fieldset>
-    <input type="submit" value="create new fruit" />
+    <input type="submit" value="create new ballet" />
   </form>
 </div>
 {% endblock %}

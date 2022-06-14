@@ -1,6 +1,6 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-  <form action="/user/signup" method="post">
+  <form action="" method="post">
     <fieldset>
       <legend>New User</legend>
       <label>USERNAME: <input type="text" name="username" required /> </label>
@@ -8,6 +8,7 @@
         >PASSWORD: <input type="password" name="password" required />
       </label>
       <input type="submit" value="Create Account" />
+      <a href="/login/"><button>Back to Main</button></a>
     </fieldset>
   </form>
 </div>

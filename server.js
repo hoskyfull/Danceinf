@@ -39,12 +39,12 @@ app.use(
 // Routes
 ////////////////////////////////////////////
 
-app.use("/ballets", BalletsRouter); // send all "/fruits" routes to fruit router
+app.use("/ballets", BalletsRouter); // send all "/ballets" routes to fruit router
 app.use("/user", UserRouter); // send all "/user" routes to user router
 
-app.get("/", (req, res) => {
-  res.send("your server is running... better catch it.");
-});
+// app.get("/", (req, res) => {
+//   res.send("your server is running... better catch it.");
+// });
 //////////////////////////////////////////////
 // Server Listener
 //////////////////////////////////////////////

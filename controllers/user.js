@@ -29,7 +29,7 @@ router.post("/signup", async (req, res) => {
     User.create(req.body)
         .then((user) => {
             // redirect to login page
-            res.redirect("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/user/signup.liquid");
+            res.redirect("/");
         })
         .catch((error) => {
             // send error as json
@@ -41,7 +41,7 @@ router.post("/signup", async (req, res) => {
 
 // The login Routes (Get => form, post => submit form)
 router.get("/login", (req, res) => {
-    res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/user/login.liquid");
+    res.render("user/login");
 });
 
 router.post("/login", async (req, res) => {

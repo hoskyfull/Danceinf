@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 // Import Dependencies
 ///////////////////////////////////////
-const mongoose = require("./connection");
+const mongoose = require("../../models/connection");
 const Ballets = require('../balletmodel');
 
 
@@ -15,7 +15,7 @@ const db = mongoose.connection;
 // Make sure code is not run till connected
 db.on("open", () => {
 
-    const startBallet = [
+    const startBallets = [
         {
             name: 'Swan Lake',
             composed: 'Pyotr Ilyich Tchaikovsky',
