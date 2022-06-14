@@ -6,7 +6,7 @@ const express = require("express"); // import express
 const morgan = require("morgan"); //import morgan
 const methodOverride = require("method-override");
 const path = require("path")
-const CompanyRouter = require('./controllers/ballets')
+const BalletsRouter = require('./controllers/ballets')
 const UserRouter = require("./controllers/user");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -38,10 +38,13 @@ app.use(
 ////////////////////////////////////////////
 // Routes
 ////////////////////////////////////////////
+
+app.use("/ballets", BalletsRouter); // send all "/fruits" routes to fruit router
+app.use("/user", UserRouter); // send all "/user" routes to user router
+
 app.get("/", (req, res) => {
   res.send("your server is running... better catch it.");
 });
-
 //////////////////////////////////////////////
 // Server Listener
 //////////////////////////////////////////////

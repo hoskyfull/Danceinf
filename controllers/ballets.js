@@ -30,10 +30,11 @@ router.use((req, res, next) => {
 router.get("/", (req, res) => {
     // find all the ballets
     Ballets.find({ username: req.session.username })
+    .populate()
         // render a template after they are found
         .then((ballets) => {
             console.log(ballets);
-            res.render("./views/index.liquid", { ballets });
+            res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/index.liquid", { ballets });
         })
         // send error as json if they aren't
         .catch((error) => {
@@ -45,7 +46,7 @@ router.get("/", (req, res) => {
 
 // new route
 router.get("/new", (req, res) => {
-    res.render("./views/ballets/new.liquid");
+    res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/ballets/new.liquid");
 });
 
 // create route
@@ -76,7 +77,7 @@ router.get("/:id/edit", (req, res) => {
     Ballets.findById(id)
         .then((ballets) => {
             // render edit page and send ballet data
-            res.render("./models/views/ballets/edit.liquid", { ballets });
+            res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/ballets/edit.liquid", { ballets });
         })
         // send error as json
         .catch((error) => {
@@ -130,7 +131,7 @@ router.get("/:id", (req, res) => {
         .then((ballets) => {
             console.log(ballets);
             // render the template with the data from the database
-            res.render("./views/ballets/show.liquid", { ballets });
+            res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/ballets/show.liquid", { ballets });
         })
         .catch((error) => {
             console.log(error);

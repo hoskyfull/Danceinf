@@ -9,7 +9,7 @@ const mongoose = require("./connection");
 // pull schema and model from mongoose
 const { Schema, model } = mongoose;
 
-// make fruits schema
+// make ballet schema
 const userSchema = new Schema({
     username: {
         type: String,

@@ -16,7 +16,7 @@ const router = express.Router();
 
 // The Signup Routes (Get => form, post => submit form)
 router.get("/signup", (req, res) => {
-    res.render("user/signup.liquid");
+    res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/user/signup.liquid");
 });
 
 router.post("/signup", async (req, res) => {
@@ -29,7 +29,7 @@ router.post("/signup", async (req, res) => {
     User.create(req.body)
         .then((user) => {
             // redirect to login page
-            res.redirect("/user/login");
+            res.redirect("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/user/signup.liquid");
         })
         .catch((error) => {
             // send error as json
@@ -41,7 +41,7 @@ router.post("/signup", async (req, res) => {
 
 // The login Routes (Get => form, post => submit form)
 router.get("/login", (req, res) => {
-    res.render("user/login.liquid");
+    res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/user/login.liquid");
 });
 
 router.post("/login", async (req, res) => {
@@ -58,8 +58,8 @@ router.post("/login", async (req, res) => {
                     // store some properties in the session object
                     req.session.username = username;
                     req.session.loggedIn = true;
-                    // redirect to fruits page if successful
-                    res.redirect("/fruits");
+                    // redirect to ballets page if successful
+                    res.redirect("/ballets");
                 } else {
                     // error if password doesn't match
                     res.json({ error: "password doesn't match" });
