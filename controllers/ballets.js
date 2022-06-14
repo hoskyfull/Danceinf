@@ -34,7 +34,7 @@ router.get("/", (req, res) => {
         // render a template after they are found
         .then((ballets) => {
             console.log(ballets);
-            res.render("ballets/index", { ballets });
+            res.render("ballets", { ballets });
         })
         // send error as json if they aren't
         .catch((error) => {
@@ -74,7 +74,7 @@ router.put("/:id", (req, res) => {
     Ballets.findByIdAndUpdate(id, req.body, { new: true })
         .then((ballets) => {
             // redirect to main page after updating
-            res.redirect("/ballets/index");
+            res.redirect("/ballets");
         })
         // send error as json
         .catch((error) => {
@@ -93,7 +93,7 @@ router.post("/", (req, res) => {
     Ballets.create(req.body)
         .then((ballets) => {
             // redirect user to index page if successfully created item
-            res.redirect("ballets/index");
+            res.redirect("/ballets");
         })
         // send error as json
         .catch((error) => {
