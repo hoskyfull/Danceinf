@@ -115,6 +115,7 @@ router.get("/:id/edit", (req, res) => {
             res.render("/companies/edit", { companies });
         })
         // send error as json
+        .then((ballets))
         .catch((error) => {
             console.log(error);
             res.json({ error });
