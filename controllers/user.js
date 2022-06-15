@@ -75,14 +75,21 @@ router.post("/login", async (req, res) => {
             res.json({ error });
         });
 });
-
+router.get("/user", (req, res) => {
+    res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/user/signup.liquid");
+});
 
 router.get("/logout", (req, res) => {
     // destroy session and redirect to main page
     req.session.destroy((err) => {
-        res.redirect("/");
+        res.redirect("/user/login");
     });
 });
+// USER PROFILE
+router.get("/profile", (req, res) => {
+    res.render("user/show");
+});
+
 
 
 //////////////////////////////////////////
