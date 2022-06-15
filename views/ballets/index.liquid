@@ -1,6 +1,6 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-  <a href="/ballets/new"><button>Create A New Ballet</button></a>
+  <nav class="balletCreate"><a href="/ballets/new"><button>Create A New Ballet</button></a></nav>
   {% for ballet in ballets %}
   <article>
     <a href="/ballets/{{ ballet.id }}">{{ ballet.name }}</a>
