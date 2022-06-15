@@ -2,7 +2,7 @@
 // Import Dependencies
 ////////////////////////////////////////
 const express = require("express");
-const Company = require("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/models/companymodel.js");
+const Companies = require("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/models/companymodel.js");
 
 /////////////////////////////////////////
 // Create Route
@@ -29,11 +29,11 @@ router.use((req, res, next) => {
 // index route
 router.get("/", (req, res) => {
     // find all the companies
-    Company.find({ username: req.session.username })
+    Companies.find({ username: req.session.username })
         // render a template after they are found
         .then((companies) => {
             console.log(companies);
-            res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/index.liquid", { companies });
+            res.render("companies", { companies });
         })
         // send error as json if they aren't
         .catch((error) => {
@@ -45,64 +45,9 @@ router.get("/", (req, res) => {
 
 // new route
 router.get("/new", (req, res) => {
-    res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/index.liquid");
+    res.render("companies/new");
 });
 
-// create route
-router.post("/", (req, res) => {
-    // check if the watched property should be true or false
-    req.body.watched = req.body.watched === "on" ? true : false;
-    // add username to req.body to track related user
-    req.body.username = req.session.username;
-    // create the new companies
-    Company.create(req.body)
-        .then((companies) => {
-            // redirect user to index page if successfully created item
-            res.redirect("/companies");
-        })
-        // send error as json
-        .catch((error) => {
-            console.log(error);
-            res.json({ error });
-        });
-});
-
-
-// edit route
-router.get("/:id/edit", (req, res) => {
-    // get the id from params
-    const id = req.params.id;
-    // get the companies from the database
-    Company.findById(id)
-        .then((companies) => {
-            // render edit page and send companies data
-            res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/companies/edit.liquid", { companies });
-        })
-        // send error as json
-        .catch((error) => {
-            console.log(error);
-            res.json({ error });
-        });
-});
-
-//update route
-router.put("/:id", (req, res) => {
-    // get the id from params
-    const id = req.params.id;
-    // check if the watched property should be true or false
-    req.body.watched = req.body.watched === "on" ? true : false;
-    // update the company
-    Company.findByIdAndUpdate(id, req.body, { new: true })
-        .then((companies) => {
-            // redirect to main page after updating
-            res.redirect("/companies");
-        })
-        // send error as json
-        .catch((error) => {
-            console.log(error);
-            res.json({ error });
-        });
-});
 
 router.delete("/:id", (req, res) => {
     // get the id from params
@@ -120,6 +65,63 @@ router.delete("/:id", (req, res) => {
         });
 });
 
+//update route
+router.put("/:id", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+    // check if the watched property should be true or false
+    req.body.watched = req.body.watched === "on" ? true : false;
+    // update the company
+    Companies.findByIdAndUpdate(id, req.body, { new: true })
+        .then((companies) => {
+            // redirect to main page after updating
+            res.redirect("/companies");
+        })
+        // send error as json
+        .catch((error) => {
+            console.log(error);
+            res.json({ error });
+        });
+});
+
+// create route
+router.post("/", (req, res) => {
+    // check if the watched property should be true or false
+    req.body.watched = req.body.watched === "on" ? true : false;
+    // add username to req.body to track related user
+    req.body.username = req.session.username;
+    // create the new companies
+    Companies.create(req.body)
+        .then((companies) => {
+            // redirect user to index page if successfully created item
+            res.redirect("/companies");
+        })
+        // send error as json
+        .catch((error) => {
+            console.log(error);
+            res.json({ error });
+        });
+});
+
+
+// edit route
+router.get("/:id/edit", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+    // get the companies from the database
+    Companies.findById(id)
+        .then((companies) => {
+            // render edit page and send companies data
+            res.render("/companies/edit", { companies });
+        })
+        // send error as json
+        .catch((error) => {
+            console.log(error);
+            res.json({ error });
+        });
+});
+
+
 // show route
 router.get("/:id", (req, res) => {
     // get the id from params
@@ -130,7 +132,7 @@ router.get("/:id", (req, res) => {
         .then((companies) => {
             console.log(companies);
             // render the template with the data from the database
-            res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/companies/show.liquid", { companies });
+            res.render("companies/show", { companies });
         })
         .catch((error) => {
             console.log(error);

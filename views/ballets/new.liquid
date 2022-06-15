@@ -4,15 +4,28 @@
     <fieldset>
       <legend>Create a New Ballet</legend>
       <label>
-        NAME:<input type="text" name="name" placeholder="enter ballet name" />
+        NAME:
+        <input 
+        type="text" 
+        name="name" 
+        placeholder="enter ballet name" />
       </label>
       <label>
-        COMPOSEER:<input type="text" name="composed" placeholder="enter composer name" />
+        COMPOSEER:
+        <input 
+        type="text" 
+        name="composed" 
+        placeholder="enter composer name" />
       </label>
-      <label> WATCHED:<input type="checkbox" name="watched" /> </label>
+      <label> WATCHED:
+        <input 
+        type="checkbox" 
+        name="watched" /> </label>
     </fieldset>
-    <input type="submit" value="create new ballet" />
-    <a href="/ballets/"><button>Back</button></a>
+    <input 
+    type="submit" 
+    value="create new ballet" />
   </form>
+  <a href="/ballets/"><button>Back</button></a>
 </div>
 {% endblock %}

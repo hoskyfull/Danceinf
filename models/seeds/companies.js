@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 // Import Dependencies
 ///////////////////////////////////////
-const mongoose = require("./connection");
+const mongoose = require("../../models/connection");
 const Companies = require("../companymodel");
 
 ///////////////////////////////////////////

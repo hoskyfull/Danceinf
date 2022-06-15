@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon ballets.js",
-    "seed": "node models/seeds/ballets.js"
+    "seed": "node models/seeds/ballets.js",
+    "seedTwo": "node models/seeds/companies.js"
   },
   "repository": {
     "type": "git",

@@ -69,6 +69,7 @@ router.put("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id;
     // check if the watched property should be true or false
+    // console.log(req.body)
     req.body.watched = req.body.watched === "on" ? true : false;
     // update the ballet
     Ballets.findByIdAndUpdate(id, req.body, { new: true })

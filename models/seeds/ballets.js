@@ -41,7 +41,7 @@ db.on("open", () => {
             premiered: 1938,
         },
         {
-            name: 'Dpn Quixote',
+            name: 'Don Quixote',
             composed: 'Ludwig Minkus',
             choreographed: 'Marius Petipa',
             premiered: 1869,

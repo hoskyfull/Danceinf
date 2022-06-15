@@ -1,9 +1,9 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-  <a href="/ballets/new"><button>Create A New Ballet</button></a>
-  {% for ballet in ballets %}
+  <a href="/companies/new"><button>Create A New Company</button></a>
+  {% for company in companies %}
   <article>
-    <a href="/ballets/{{ ballet.id }}">{{ ballet.name }}</a>
+    <a href="/companies/{{ company.id }}">{{ company.name }}</a>
       <h2>
         <!-- {{ballet.name}} - {% if ballet.watched == true %} Watched {% else %} Not
         Watched {% endif %} -->

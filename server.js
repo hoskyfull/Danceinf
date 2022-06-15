@@ -7,6 +7,7 @@ const morgan = require("morgan"); //import morgan
 const methodOverride = require("method-override");
 const path = require("path")
 const BalletsRouter = require('./controllers/ballets')
+const CompaniesRouter = require('./controllers/companies')
 const UserRouter = require("./controllers/user");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -39,7 +40,8 @@ app.use(
 // Routes
 ////////////////////////////////////////////
 
-app.use("/ballets", BalletsRouter); // send all "/ballets" routes to fruit router
+app.use("/ballets", BalletsRouter); // send all "/companies" routes to companies router
+app.use("/companies", CompaniesRouter); // send all "/ballets" routes to ballet router
 app.use("/user", UserRouter); // send all "/user" routes to user router
 
 // app.get("/", (req, res) => {

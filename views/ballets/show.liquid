@@ -2,15 +2,21 @@
 <div>
     <article>
         <h2>
-            {{ ballets.name }} -
-
-            <!-- {% if readyToEat == true %}
+            <u><strong>{{ ballets.name }}</strong></u>
+        </h2>
+        <h3> Composed by: <u>{{ ballets.composed }}</u> </h3>
+        <h3> Choreographed by: <u>{{ ballets.choreographed }}</u> </h3>
+        <h3> Premiered on: <u>{{ ballets.premiered }}</u></h3>
+        <h3> Clip: <u>{{ ballets.clip }}</u></h3>
+        <h3>
+            Watched by user? {% if watched == true %}
             Watched
             {% else %}
             Not Watched
-            {% endif %} -->
-        </h2>
-        <h3>{{ ballet.composed }}</h3>
+            {% endif %} 
+            <!-- {{ ballets.watched }} -->
+        </h3>
+    
         <a href="/ballets/{{ ballets.id }}/edit"><button>Edit</button></a>
         <form action="/ballets/{{ ballets.id }}?_method=DELETE" method="POST">
             <input type="submit" value="Delete" />
