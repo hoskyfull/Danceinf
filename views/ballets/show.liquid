@@ -8,21 +8,15 @@
         <h3> Choreographed by: <u>{{ ballets.choreographed }}</u> </h3>
         <h3> Premiered on: <u>{{ ballets.premiered }}</u></h3>
         <h3> Clip: <u>{{ ballets.clip }}</u></h3>
-        <h3>
+        <!-- <h3> Clip: <u>{{ ballets.clip }}</u></h3> -->
+        <!-- <h3>
             Watched by user? {% if watched == true %}
             Watched
             {% else %}
             Not Watched
             {% endif %}
-            <!-- {{ ballets.watched }} -->
-        </h3>
-        <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Select</button>
-            <div id="myDropdown" class="dropdown-content">
-                <input type="text" placeholder="Search..." id="myInput" onkeyup="filterFunction()">
-                <a href="">About</a>
-            </div>
-        </div>
+
+        </h3> -->
 
         <a href="/ballets/{{ ballets.id }}/edit"><button>Edit</button></a>
         <form action="/ballets/{{ ballets.id }}?_method=DELETE" method="POST">

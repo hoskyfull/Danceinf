@@ -129,9 +129,11 @@ router.post("/:companyid/add", (req, res) => {
         .then((company) => {
             // redirect user to index page if successfully created item
             company.ballets.push(req.body.ballet)
-            company.save()
+            company.save(function (err){
+                res.redirect('/companies')
+            })
             // res.redirect("/companies");
-            res.send(company);
+            // res.send(company);
         })
         // send error as json
         .catch((error) => {
