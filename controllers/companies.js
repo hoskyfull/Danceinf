@@ -3,6 +3,7 @@
 ////////////////////////////////////////
 const express = require("express");
 const Companies = require("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/models/companymodel.js");
+const Ballet = require("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/models/balletmodel.js");
 
 /////////////////////////////////////////
 // Create Route
@@ -114,14 +115,30 @@ router.get("/:id/edit", (req, res) => {
             // render edit page and send companies data
             res.render("/companies/edit", { companies });
         })
-        // send error as json
-        .then((ballets))
         .catch((error) => {
             console.log(error);
             res.json({ error });
         });
 });
 
+// create route
+router.post("/:companyid/add", (req, res) => {
+    // create the new companies
+    console.log(req.body)
+    Companies.findById(req.params.companyid)
+        .then((company) => {
+            // redirect user to index page if successfully created item
+            company.ballets.push(req.body.ballet)
+            company.save()
+            // res.redirect("/companies");
+            res.send(company);
+        })
+        // send error as json
+        .catch((error) => {
+            console.log(error);
+            res.json({ error });
+        });
+});
 
 // show route
 router.get("/:id", (req, res) => {
@@ -130,10 +147,15 @@ router.get("/:id", (req, res) => {
 
     // find the particular company from the database
     Companies.findById(id)
+        .populate('ballets')
         .then((companies) => {
             console.log(companies);
+            Ballet.find({})
+            .then((ballets)=> {
+                // console.log(ballets, 'found ballet')
+                res.render("companies/show", { companies, ballets });
+            })
             // render the template with the data from the database
-            res.render("companies/show", { companies });
         })
         .catch((error) => {
             console.log(error);

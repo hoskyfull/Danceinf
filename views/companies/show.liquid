@@ -7,14 +7,20 @@
         <h3> Year founded: <u>{{ companies.founded }}</u> </h3>
         <h3> Rank: <u>{{ companies.rank }}</u></h3>
         <h3> Rank year: <u>{{ companies.rankyear }}</u></h3>
-        <h3>
-            Watched by user? {% if watched == true %}
-            Watched
-            {% else %}
-            Not Watched
-            {% endif %} 
-            <!-- {{ ballets.watched }} -->
-        </h3>
+        {%for ballet in companies.ballets%}
+        <h3>{{ballet.name}}</h3>       
+        {%endfor%}
+        <form action="/companies/{{ companies._id }}/add" method="POST">
+        <div class="custom-select" style="width:200px;">
+            <select name="ballet">
+                {% for ballet in ballets%}
+              <option value="{{ballet._id}}">{{ ballet.name }}</option>
+              {%endfor%}
+            </select>
+          </div>
+          <input type="submit" value="Add ballet to company">
+        </form>
+          </div>
         <a href="/companies/{{ companies.id }}/edit"><button>Edit</button></a>
         <form action="/companies/{{ companies.id }}?_method=DELETE" method="POST">
             <input type="submit" value="Delete" />

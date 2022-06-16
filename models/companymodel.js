@@ -13,7 +13,8 @@ const danceCoSchema = new Schema({
     founded: Number,
     rank: Number,
     rankyear: Number,
-    watched: Boolean,
+    // watched: Boolean,
+    ballets: [{type: Schema.Types.ObjectId, ref: 'Ballet'}]
     //ballets: [object.ref]
     ///mongoose populate method read about it
     //to be added in either index or show through the get route
