@@ -4,9 +4,10 @@
         <h2>
             {{ companies.name }}
             <h3> Location: <u>{{ companies.location }}</u> </h3>
-        <h3> Year founded: <u>{{ companies.founded }}</u> </h3>
-        <h3> Rank: <u>{{ companies.rank }}</u></h3>
-        <h3> Rank year: <u>{{ companies.rankyear }}</u></h3>
+        <h3>- Year founded: <u>{{ companies.founded }}</u> </h3>
+        <h3>- Rank: <u>{{ companies.rank }}</u></h3>
+        <h3>- Rank year: <u>{{ companies.rankyear }}</u></h3>
+        <h3>- Ballets Performed by this company:</h3>
         {%for ballet in companies.ballets%}
         <h3>{{ballet.name}}</h3>       
         {%endfor%}

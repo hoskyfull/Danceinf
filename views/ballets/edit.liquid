@@ -11,17 +11,25 @@
                 value="{{ballets.name}}" />
             </label>
             <label>
-                COMPOSED:<input 
+                COMPOSER:<input 
                 type="text" 
                 name="composed" 
-                placeholder="enter composer name" 
+                placeholder="enter composer's name" 
                 value="{{ballets.composed}}" />
             </label>
             <label>
-                WATCHED:<input 
-                type="checkbox" 
-                name="watched" {% if ballets.watched==true %} checked
-                {% endif %} />
+                CHOREOGRAPHED:<input 
+                type="text" 
+                name="choreographed" 
+                placeholder="enter choreograher's name" 
+                value="{{ballets.choreographed}}" />
+            </label>
+            <label>
+                PREMIERED:<input 
+                type="text" 
+                name="premiered" 
+                placeholder="enter premier date" 
+                value="{{ballets.premiered}}" />
             </label>
         </fieldset>
         <input type="submit" value="Edit {{ballets.name}}" />

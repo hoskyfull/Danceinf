@@ -111,9 +111,10 @@ router.get("/:id/edit", (req, res) => {
     const id = req.params.id;
     // get the companies from the database
     Companies.findById(id)
+    .populate('ballets')
         .then((companies) => {
             // render edit page and send companies data
-            res.render("/companies/edit", { companies });
+            res.render("companies/edit", { companies });
         })
         .catch((error) => {
             console.log(error);
@@ -134,6 +135,24 @@ router.post("/:companyid/add", (req, res) => {
             })
             // res.redirect("/companies");
             // res.send(company);
+        })
+        // send error as json
+        .catch((error) => {
+            console.log(error);
+            res.json({ error });
+        });
+});
+router.put("/:companyid/remove", (req, res) => {
+    // create the new companies
+    console.log(req.body)
+    Companies.findById(req.params.companyid)
+        .then((company) => {
+            console.log(req.body.ballet)
+            // redirect user to index page if successfully created item
+            company.ballets.pull(req.body.ballet)
+            company.save(function (err){
+                res.redirect(`/companies/${req.params.companyid}/edit`)
+            })
         })
         // send error as json
         .catch((error) => {

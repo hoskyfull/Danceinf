@@ -18,14 +18,33 @@
                 value="{{companies.location}}" />
             </label>
             <label>
-                WATCHED:<input 
-                type="checkbox" 
-                name="WATCHED" {% if companies.watched==true %} checked
-                {% endif %} />
+                RANK:<input 
+                type="text" 
+                name="rank" 
+                placeholder="enter rank" 
+                value="{{companies.rank}}" />
+            </label>
+            <label>
+                RANK YEAR:<input 
+                type="text" 
+                name="rankyear" 
+                placeholder="enter rank year" 
+                value="{{companies.rankyear}}"/>
             </label>
         </fieldset>
-        <input type="submit" value="Edit {{companies.name}}" />
-        <a href="/companies/"><button>Back</button></a>
+        <input type="submit" value="Done" />
+        <a href="/companies"><button>Back</button></a>
     </form>
+    <h2>Ballets performed by {{companies.name}}</h2>
+    {% for ballet in companies.ballets%}
+    <form action="/companies/{{companies.id}}/remove?_method=PUT" method="post">
+    <input type="hidden" value="{{ballet._id}}"  name="ballet">
+    
+        <h5>{{ballet.name}}</h5>
+
+   <input type="submit" value="Delete" />
+</form>
+    {%endfor%}
+    
 </div>
 {% endblock %}
