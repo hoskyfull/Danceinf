@@ -3,6 +3,36 @@
 
 }
 
+.homeButton {
+    display: flex;
+    /* position: relative;
+    align-items:stretch; */
+    width: 300px;
+    height: 300px;
+    margin: auto;
+
+}
+
+.buttonOne {
+    height:200px;
+    width:200px;
+
+
+}
+.buttonTwo {
+    height:200px;
+    width:200px;
+}
+
+
+
+
+
+
+
+
+
+
 /* Dropdown Button */
 .dropbtn {
     background-color: #3498DB;

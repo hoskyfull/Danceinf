@@ -43,12 +43,12 @@
 
 <body class="body">
     <header>
-        <nav><h1>The Ballet App</h1>
-            <a href="/ballets"><button>Ballets</button></a>
-            <a href="/companies"><button>Companies</button></a>
-        </nav>
-        
+        <h1>The Ballet App</h1>
     </header>
+    <nav class="homeButton">
+        <a href="/ballets"><button class="buttonOne">Ballets</button></a>
+        <a href="/companies"><button class="buttonTwo">Companies</button></a>
+    </nav>
 
     <main>{% block content %}My default content{% endblock %}</main>
 
