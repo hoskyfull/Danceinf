@@ -1,9 +1,9 @@
 # Danceinf
 
-Danceinf is a Full Stack App where the user can help Create, Retrieve, Update, Delete ballet and dance companies information. The goal is to later create the first Ballet information API.
+Danceinf is a Full Stack App where the user can help Create, Retrieve, Update, Delete ballet and dance companies information. Upon checkeing further in the community, I found no dance API just for ballets and dance companies so I created this app with the goal creating the first Ballet information API.
 
 
-## Technologies used 💾
+### Technologies used 💾
 
 - CSS
 - JavaScript
@@ -56,3 +56,6 @@ Thing that would love to add to this website:
 - Number of companies the company has
 - Dance Festivals in the USA and Companies who have performed
 
+### Data Source
+
+THe information about dance companies like ranking can be found at https://www.dancedataproject.com.
