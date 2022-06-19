@@ -44,6 +44,10 @@ app.use("/ballets", BalletsRouter); // send all "/companies" routes to companies
 app.use("/companies", CompaniesRouter); // send all "/ballets" routes to ballet router
 app.use("/user", UserRouter); // send all "/user" routes to user router
 
+app.get('/', function(req, res){
+  res.redirect('/home');
+});
+
 app.get("/home", (req, res) => {
   res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/home/show.liquid");
 });
