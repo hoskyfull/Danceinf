@@ -51,4 +51,4 @@ app.get("/home", (req, res) => {
 // Server Listener
 //////////////////////////////////////////////
 const PORT = process.env.PORT;
-app.listen(PORT || 3000, () => console.log(`Now Listening on port ${PORT}`));
+app.listen(PORT || 5000, '0.0.0.0', () => console.log(`Now Listening on port ${PORT}`));
