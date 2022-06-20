@@ -3,6 +3,11 @@
 Danceinf is a Full Stack App where the user can help Create, Retrieve, Update, Delete ballet and dance companies information. Upon checkeing further in the community, I found no dance API just for ballets and dance companies so I created this app with the goal creating the first Ballet information API.
 
 
+### Link
+
+https://danceinf.herokuapp.com/
+
+
 ### Technologies used 💾
 
 - CSS
