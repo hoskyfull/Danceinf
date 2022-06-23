@@ -2,7 +2,7 @@
 // Import Dependencies
 ////////////////////////////////////////
 const express = require("express");
-const Ballets = require("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/models/balletmodel.js");
+const Ballets = require("../models/balletmodel");
 
 /////////////////////////////////////////
 // Create Route
