@@ -16,7 +16,7 @@ const router = express.Router();
 
 // The Signup Routes (Get => form, post => submit form)
 router.get("/signup", (req, res) => {
-    res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/user/signup.liquid");
+    res.render("user/signup");
 });
 
 router.post("/signup", async (req, res) => {
@@ -76,7 +76,7 @@ router.post("/login", async (req, res) => {
         });
 });
 router.get("/user", (req, res) => {
-    res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/user/signup.liquid");
+    res.render("user/signup");
 });
 
 router.get("/logout", (req, res) => {

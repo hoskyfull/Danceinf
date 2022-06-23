@@ -49,7 +49,7 @@ app.get('/', function(req, res){
 });
 
 app.get("/home", (req, res) => {
-  res.render("/Users/berto/Desktop/GA/projecttwo/Danceinf/Danceinf/views/home/show.liquid");
+  res.render("home/show");
 });
 //////////////////////////////////////////////
 // Server Listener
